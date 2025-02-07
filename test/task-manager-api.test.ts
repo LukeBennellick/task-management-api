@@ -8,6 +8,6 @@ test("S3 Bucket Created", () => {
   const template = Template.fromStack(stack);
 
   template.hasResourceProperties("AWS::S3::Bucket", {
-    BucketName: "task-backups",
+    BucketName: "task-backups-bucket",
   });
 });
