@@ -8,6 +8,18 @@ test("S3 Bucket Created", () => {
   const template = Template.fromStack(stack);
 
   template.hasResourceProperties("AWS::S3::Bucket", {
-    BucketName: "task-backups-bucket",
+    BucketName: "task-backup-bucket",
+  });
+});
+
+test("Get task Lambda created", () => {
+  const app = new cdk.App();
+  const stack = new TaskManagerApi.TaskManagerApiStack(app, "MyTestStack");
+  const template = Template.fromStack(stack);
+
+  template.hasResourceProperties("AWS::Lambda::Function", {
+    Runtime: "nodejs20.x",
+    Handler: "index.getTask",
+    FunctionName: "GetTaskLambda",
   });
 });
