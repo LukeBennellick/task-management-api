@@ -1,8 +1,8 @@
-name: Build
+name: Pull Request
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     types: [opened, synchronize, reopened]
 
@@ -21,14 +21,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build
-        run: npm run build
-
       - name: Run tests with coverage
         run: npm test -- --coverage
-
-      - name: Debug Coverage File
-        run: ls -l coverage && cat coverage/lcov.info
 
   sonarcloud:
     name: SonarCloud Analysis
@@ -67,4 +61,4 @@ jobs:
             -Dsonar.qualitygate.wait=true
             -Dsonar.javascript.coveragePlugin=lcov
             -Dsonar.scm.provider=git
-            -Dsonar.newCode.referenceBranch=master
+            -Dsonar.newCode.referenceBranch=edit
