@@ -1,1 +1,3 @@
-// Empty file for now - so that Sonarcloud run passes.
+export const add = (a: number, b: number): number => {
+  return a + b;
+};
