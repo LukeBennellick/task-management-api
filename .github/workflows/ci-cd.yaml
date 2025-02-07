@@ -53,7 +53,7 @@ jobs:
             -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
             -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }}
             -Dsonar.sources=lib,src
-            -Dsonar.tests=lib/**/*.test.ts,src/**/*.test.ts
+            -Dsonar.tests=lib,src
             -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
             -Dsonar.typescript.file.suffixes=.ts
             -Dsonar.coverage.exclusions=**/*.test.ts,**/*.d.ts,**/jest.config.ts
